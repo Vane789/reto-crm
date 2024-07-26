@@ -108,6 +108,9 @@ docker-compose exec web python manage.py test
 ```bash
 python manage.py test
 ```
+## Documentación de la API
+- [Swagger UI](http://localhost:8000/docs/)
+Para acceder a la documentación, asegúrate de que el servidor de desarrollo esté en ejecución y visita las URL anteriores en tu navegador.
 
 ### Notas Adicionales
 1. **Para el uso con Docker**: Asegúrate de que el contenedor de PostgreSQL y la aplicación web estén corriendo correctamente. Puedes verificar el estado de los contenedores con `docker ps`.
