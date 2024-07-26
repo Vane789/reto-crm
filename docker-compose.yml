@@ -1,0 +1,29 @@
+version: '3.9'
+
+services:
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/vulnerabilityReports
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DJANGO_SETTINGS_MODULE=retoCRM.settings
+      - DATABASE_URL=postgres://vane:reto@db:5432/retodb
+
+  db:
+    image: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432" 
+    environment:
+      POSTGRES_DB: retodb
+      POSTGRES_USER: vane
+      POSTGRES_PASSWORD: reto
+
+volumes:
+  postgres_data:
